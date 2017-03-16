@@ -1,0 +1,11 @@
+[Unit]
+Description=xtom-network-switch daemon
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/xtom-network-switch/
+ExecStart=/opt/xtom-network-switch/network-switch 
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
