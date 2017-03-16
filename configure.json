@@ -1,0 +1,10 @@
+{
+  "listen": "127.0.0.1:10000",
+  "modes": [
+    "main",
+    "china_telecom",
+    "china_unicom",
+    "load_balance",
+    "clear_settings"
+  ]
+}

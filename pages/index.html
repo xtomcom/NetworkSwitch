@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xTom NetworkSwitch</title>
+    <link rel="stylesheet" href="static/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="static/styles/user-style.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">xTom NetworkSwitch</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row functions">
+        <button type="button" class="btn btn-default status">
+            Read Status
+        </button>
+    </div>
+    <div class="row switch-buttons">
+        <button type="button" class="btn btn-default" data-mode="main">
+            Auto routes
+        </button>
+        <button type="button" class="btn btn-default" data-mode="china_telecom">
+            China Telecom
+        </button>
+        <button type="button" class="btn btn-default" data-mode="china_unicom">
+            China Unicom
+        </button>
+        <button type="button" class="btn btn-default" data-mode="load_balance">
+            Load Balance
+        </button>
+        <button type="button" class="btn btn-default" data-mode="clear_settings">
+            Clear Settings
+        </button>
+    </div>
+    <div class="row">
+        <pre class="response"></pre>
+    </div>
+</div>
+<script src="static/scripts/jquery-3.1.1.min.js"></script>
+<script src="static/scripts/logic.js"></script>
+</body>
+</html>
