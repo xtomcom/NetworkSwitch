@@ -21,32 +21,16 @@ start() {
 	echo "Starting daemon: $NAME"
 	start-stop-daemon \
 		--start --quiet --background \
-		--pidfile ${PID_FILE} --make-pidfile \
-		--exec ${DAEMON} \
-		--chdir ${WORK_DIR}
+		--pidfile "$PID_FILE" --make-pidfile \
+		--exec "$DAEMON" \
+		--chdir "$WORK_DIR"
 }
 
 stop() {
 	echo "Stopping daemon: $NAME"
 	start-stop-daemon \
-		--stop \
-		--quiet \
-		--oknodo \
-		--pidfile ${PID_FILE}
-}
-
-restart() {
-	start-stop-daemon \
-		--stop \
-		--quiet \
-		--oknodo \
-		--retry 30 \
-		--pidfile ${PID_FILE}
-	start-stop-daemon \
-		--start --quiet --background \
-		--pidfile ${PID_FILE} --make-pidfile \
-		--exec ${DAEMON} \
-		--chdir ${WORK_DIR}
+		--stop --quiet --oknodo --retry 30 \
+		--pidfile "$PID_FILE"
 }
 
 case "$1" in
@@ -57,7 +41,8 @@ case "$1" in
 		stop
 		;;
 	restart)
-		restart
+		stop
+		start
 		;;
 	*)
 		echo "Usage: $1 {start|stop|restart}"
