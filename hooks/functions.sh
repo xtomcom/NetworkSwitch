@@ -17,8 +17,9 @@ query_current_rule() {
 
 query_current_rule_name() {
 	local -r mode_name="$(query_current_rule)"
-	if test "${table_mapping[$mode_name]+isset}"; then
-		echo "${table_mapping[$mode_name]}"
+	local -r display_name="${table_mapping[$mode_name]}"
+	if [ -n "$display_name" ]; then
+		echo "$display_name"
 	else
 		echo "$mode_name"
 	fi
@@ -31,6 +32,6 @@ show_report() {
 	for report in $reports; do
 		remote_ip=$(echo "$report" | cut -d' ' -f1)
 		mode_name=$(echo "$report" | cut -d' ' -f3)
-		echo "${remote_ip} -> \"${table_mapping[$mode_name]}\""
+		printf '%-15s -> "%s"\n' "$remote_ip" "${table_mapping[$mode_name]}"
 	done
 }
