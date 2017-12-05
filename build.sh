@@ -10,4 +10,5 @@ echo "copy assets"
 cp -r ./hooks ./dist
 cp -r ./pages ./dist
 cp ./configure.json ./dist/
+cp ./systemd.service ./dist/
 cp ./service.initd.sh ./dist/
